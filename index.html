@@ -58,7 +58,17 @@
         $('input[value="Run Script"]').click( function(){
           console.log('Caught a "Run Script" click event.');
           $("#output_area").addClass( 'selected');
-          alert("The looping function should go here.");
+          function loop_and_display() {
+            var output_html;
+            var count = 0;
+            output_html="<p>The script is starting...</p>";
+            while (count<10) {
+              output_html= output_html + "Times this loop has run: "+ count +"<br />";
+              count++;
+            }
+          output_html += "<p>The script is done.</p>";
+          $("#output_area").html(output_html);
+          }
         });
 
         // attach an event listener to the Clear button here
@@ -76,17 +86,7 @@
         This function prepares a string variable with HTML and then uses jQuery
         to load the variable contents into the DOM.
       */
-      function loop_and_display() {
-        var output_html;
-        var count = 0;
-        output_html="<p>The script is starting...</p>";
-        while (count<10) {
-          output_html= output_html + "Times this loop has run: "+ count +"<br />";
-          count++;
-        }
-        output_html += "<p>The script is done.</p>";
-        $("#output_area").html(output_html);
-      }
+
     </script>
   </head>
   <body>
